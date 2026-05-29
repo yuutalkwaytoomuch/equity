@@ -103,7 +103,7 @@ function lsSet(key,val)    { try{localStorage.setItem(key,JSON.stringify(val));}
 
 /* ─────────────────────────────────────────────────────────
    GEMINI FETCH  — runs entirely client-side, no CORS issues
-   Uses gemini-2.0-flash (free tier, supports grounding/search)
+   Uses gemini-2.5-flash (free tier, supports grounding/search)
 ───────────────────────────────────────────────────────── */
 async function fetchAnalysis(ticker, apiKey) {
   const today = new Date().toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
@@ -178,7 +178,8 @@ IMPORTANT RULES:
 - Counterarguments: include a real opposing view where one meaningfully exists, else null
 - The response must be valid JSON parseable by JSON.parse()`;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
   const body = {
     contents: [{ parts: [{ text: prompt }] }],
