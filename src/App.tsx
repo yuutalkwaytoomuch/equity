@@ -539,10 +539,16 @@ function ApiKeyModal({onSave,css}) {
 
   const save = () => {
     const k = key.trim();
-    if (!k.startsWith("AI") || k.length < 20) {
-      setErr("Gemini API keys start with 'AI' and are ~39 characters. Check and try again.");
+    
+    // Check for either the legacy format (AI...) or the new format (AQ...)
+    const isValidLegacy = k.startsWith("AI") && k.length >= 20;
+    const isValidNew = k.startsWith("AQ") && k.includes(".");
+
+    if (!isValidLegacy && !isValidNew) {
+      setErr("Invalid key format. Gemini keys should start with 'AI' or 'AQ'. Check and try again.");
       return;
     }
+    
     onSave(k);
   };
 
