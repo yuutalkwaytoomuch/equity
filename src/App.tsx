@@ -517,7 +517,11 @@ function Spinner({css,label}) {
         borderTopColor:T.accent,borderRadius:"50%",
         animation:"spin 0.75s linear infinite"}} />
       {label}
-      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
+      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}
+header { padding-top: max(12px, env(safe-area-inset-top)) !important; }
+#root  { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
+
+</style>
     </div>
   );
 }
@@ -724,7 +728,7 @@ function TopBar({css,ticker,setTicker,onLookup,onMenuClick,onBookmark,onAddCompa
       </button>
 
       {/* Search */}
-      <div style={{flex:1,display:"flex",gap:8,maxWidth:580}}>
+      <div style={{flex:1, display:"flex", gap:8}}>
         <input
           value={ticker}
           onChange={e=>setTicker(e.target.value.toUpperCase())}
@@ -1316,8 +1320,7 @@ export default function App() {
           loading={loading}
         />
 
-        <div style={{flex:1,padding:"32px 28px 64px",maxWidth:900,width:"100%",
-          margin:"0 auto",boxSizing:"border-box"}}>
+        <div style={{flex:1, padding:"28px 20px 64px", width:"100%", boxSizing:"border-box"}}
           {view==="empty"   && <EmptyState css={css}/>}
           {view==="result"  && (
             loading   ? <Spinner css={css} label={`Researching ${ticker}…`}/>
