@@ -518,9 +518,6 @@ function Spinner({css,label}) {
         animation:"spin 0.75s linear infinite"}} />
       {label}
       <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}
-header { padding-top: max(12px, env(safe-area-inset-top)) !important; }
-#root  { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); }
-
 </style>
     </div>
   );
