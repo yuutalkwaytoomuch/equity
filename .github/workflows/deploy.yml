@@ -2,8 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ] # Triggers whenever you save changes to main
+    branches: [ "main" ]
 
+# ⚠️ FORCE PERMISSIONS DIRECTLY IN CODE TO BYPASS UI LIMITATIONS
 permissions:
   contents: read
   pages: write
