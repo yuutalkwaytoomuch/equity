@@ -517,8 +517,7 @@ function Spinner({css,label}) {
         borderTopColor:T.accent,borderRadius:"50%",
         animation:"spin 0.75s linear infinite"}} />
       {label}
-      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}
-</style>
+      <style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style>
     </div>
   );
 }
