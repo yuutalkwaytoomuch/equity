@@ -724,7 +724,7 @@ function TopBar({css,ticker,setTicker,onLookup,onMenuClick,onBookmark,onAddCompa
       </button>
 
       {/* Search */}
-      <div style={{flex:1, display:"flex", gap:8}}>
+      <div style={{flex:1,display:"flex",gap:8,maxWidth:580}}>
         <input
           value={ticker}
           onChange={e=>setTicker(e.target.value.toUpperCase())}
@@ -1316,7 +1316,8 @@ export default function App() {
           loading={loading}
         />
 
-        <div style={{flex:1, padding:"28px 20px 64px", width:"100%", boxSizing:"border-box"}}
+        <div style={{flex:1,padding:"32px 28px 64px",maxWidth:900,width:"100%",
+          margin:"0 auto",boxSizing:"border-box"}}>
           {view==="empty"   && <EmptyState css={css}/>}
           {view==="result"  && (
             loading   ? <Spinner css={css} label={`Researching ${ticker}…`}/>
@@ -1342,5 +1343,5 @@ import ReactDOM from 'react-dom/client';
 // This grabs your App component and forces it onto the screen
 const rootElement = document.getElementById('root');
 if (rootElement) {
-  ReactDOM.createRoot(rootElement).render(<App />);
+     ReactDOM.createRoot(rootElement).render(<App />);
 }
