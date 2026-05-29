@@ -1329,3 +1329,12 @@ export default function App() {
     </div>
   );
 }
+
+
+import ReactDOM from 'react-dom/client';
+
+// This grabs your App component and forces it onto the screen
+const rootElement = document.getElementById('root');
+if (rootElement) {
+  ReactDOM.createRoot(rootElement).render(<App />);
+}
